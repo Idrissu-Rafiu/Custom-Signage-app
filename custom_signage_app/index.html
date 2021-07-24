@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Cost</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .board {
+        width: 350px;
+        height: 250px;
+        border: 2px solid #272727;
+        border-radius: 5px;
+        position: relative;
+        padding: 1.5rem;
+      }
+
+      h1 {
+        margin-bottom: 2rem;
+      }
+
+      label {
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      input {
+        border: 0;
+        background: #d3d3d3;
+        padding: 0.5rem;
+        width: 100%;
+        border-radius: 8px;
+        color: green;
+        font-size: 1rem;
+      }
+
+      button {
+        position: absolute;
+        display: inline-block;
+        right: 5%;
+        bottom: 5%;
+        border: 0;
+        background: 0;
+        background: black;
+        color: orange;
+        padding: 0.8rem;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: transform 0.3s ease-in;
+      }
+
+      button:hover {
+        transform: scale(0.9);
+      }
+
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="board">
+      <h1>CUSTOM SIGNAGE</h1>
+      <label for="name">Enter name: <span class="show"></span></label><br />
+      <input type="text" id="name" class="input" autocomplete="off" />
+      <button class="btn">SHOW COST</button>
+    </div>
+
+    <script>
+      const btn = document.querySelector(".btn");
+      const inputField = document.querySelector(".input");
+      const displayCost = document.querySelector(".show");
+
+      btn.addEventListener("click", function () {
+        if (inputField.value.length == "") {
+          console.log("ptey");
+          displayCost.textContent = "enter a name below";
+          displayCost.classList.add("red");
+        } else {
+          const totalCost = inputField.value.length * 5;
+          displayCost.textContent = `$${totalCost}`;
+          displayCost.classList.remove("red");
+        }
+      });
+    </script>
+  </body>
+</html>
